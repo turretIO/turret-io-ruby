@@ -117,46 +117,46 @@ module TurretIO
 		end
 	end
 
-	class Segment < TurretMain
+	class Target < TurretMain
 		def get(name)
-			response = GET("/latest/segment/#{name}")
+			response = GET("/latest/target/#{name}")
 			return response.body
 		end
 
 		def create(name, attribute_map)
-			response = POST("/latest/segment/#{name}", {attributes: attribute_map})
+			response = POST("/latest/target/#{name}", {attributes: attribute_map})
 			return response.body
 		end
 
 		def update(name, attribute_map)
-			response = POST("/latest/segment/#{name}", {attributes: attribute_map})
+			response = POST("/latest/target/#{name}", {attributes: attribute_map})
 			return response.body
 		end
 	end
 
-	class SegmentEmail < TurretMain
-		def get(segment_name, email_id)
-			response = GET("/latest/segment/#{segment_name}/email/#{email_id}")
+	class TargetEmail < TurretMain
+		def get(target_name, email_id)
+			response = GET("/latest/target/#{target_name}/email/#{email_id}")
 			return response.body
 		end
 
-		def create(segment_name, subject, html_body, plain_body)
-			response = POST("/latest/segment/#{segment_name}/email", {subject: subject, html: html_body, plain: plain_body})
+		def create(target_name, subject, html_body, plain_body)
+			response = POST("/latest/target/#{target_name}/email", {subject: subject, html: html_body, plain: plain_body})
 			return response.body 
 		end 
 
-		def update(segment_name, email_id, subject, html_body, plain_body)
-			response = POST("/latest/segment/#{segment_name}/email/#{email_id}", {subject: subject, html: html_body, plain: plain_body})
+		def update(target_name, email_id, subject, html_body, plain_body)
+			response = POST("/latest/target/#{target_name}/email/#{email_id}", {subject: subject, html: html_body, plain: plain_body})
 			return response.body 
 		end
 
-		def sendTest(segment_name, email_id, email_from, recipient)
-			response = POST("/latest/segment/#{segment_name}/email/#{email_id}/sendTestEmail", {email_from: email_from, recipient: recipient})
+		def sendTest(target_name, email_id, email_from, recipient)
+			response = POST("/latest/target/#{target_name}/email/#{email_id}/sendTestEmail", {email_from: email_from, recipient: recipient})
 			return response.body
 		end
 
-		def send(segment_name, email_id, email_from)
-			response = POST("/latest/segment/#{segment_name}/email/#{email_id}/sendEmail", {email_from: email_from})
+		def send(target_name, email_id, email_from)
+			response = POST("/latest/target/#{target_name}/email/#{email_id}/sendEmail", {email_from: email_from})
 			return response.body
 		end
 
