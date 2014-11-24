@@ -25,7 +25,7 @@ require 'time'
 require 'openssl'
 require 'json'
 
-DOMAIN='https://api.turret.io'
+DOMAIN='https://dev-api.turret.io'
 
 module TurretIO
 	class TurretMain
@@ -123,13 +123,13 @@ module TurretIO
 			return response.body
 		end
 
-		def create(name, attribute_map)
-			response = POST("/latest/target/#{name}", {attributes: attribute_map})
+		def create(name, attribute_list)
+			response = POST("/latest/target/#{name}", {attributes: attribute_list})
 			return response.body
 		end
 
-		def update(name, attribute_map)
-			response = POST("/latest/target/#{name}", {attributes: attribute_map})
+		def update(name, attribute_list)
+			response = POST("/latest/target/#{name}", {attributes: attribute_list})
 			return response.body
 		end
 	end
